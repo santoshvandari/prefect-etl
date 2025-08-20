@@ -1,0 +1,15 @@
+services:
+  basic_etl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    networks:
+      - infra_default
+
+networks:
+  infra_default:
+    external: true
