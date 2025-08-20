@@ -20,15 +20,15 @@ def process_data(data):
 
 
 @task
-def save_data_in_excel(data):
+def save_data_in_csv(data):
     df = pd.DataFrame(data)
-    df.to_excel("output.xlsx", index=False)
+    df.to_csv("output.csv", index=False)
 
 @flow(name="basic_etl_flow",log_prints=True)
 def basic_etl_flow():
     data = fetch_api_data()
     processed_data = process_data(data)
-    save_data_in_excel(processed_data)
+    save_data_in_csv(processed_data)
 
 
 # Run the flow with a local executor
