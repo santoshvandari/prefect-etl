@@ -35,5 +35,6 @@ def basic_etl_flow():
 if __name__ == "__main__":
     basic_etl_flow_deploy=basic_etl_flow.to_deployment(
         name="Basic ETL Flow",
+        cron=os.environ['CRON_SCHEDULE']
     )
     serve(basic_etl_flow_deploy)
